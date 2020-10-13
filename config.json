@@ -1,0 +1,23 @@
+{
+    "deploy": {
+        "healthCheckReadiness" : "--readiness --get-url=http://:8081/health --initial-delay-seconds=15 --timeout-seconds=5",
+        "healthCheckLiveness" : "--liveness --get-url=http://:8081/health --initial-delay-seconds=10 --timeout-seconds=5",
+		"volume": "--add --name=pcf-secret --mount-path=/etc/pki/tls/secrets --secret-name=pcf-secret"
+    },
+    "config": {
+        "methods":[
+            {
+                "name":"QRIS - Payments - Inquiry Payment",
+                "relative_url":"/qris/payments/api/inquiry-tx/merchant-id/{merchant_id}/terminal-id/{terminal_id}",
+                "http_method":"GET"
+                
+            },
+            {
+                "name":"QRIS - Payments - Generate QRIS",
+                "relative_url":"/qris/payments/api/qr/tx",
+                "http_method":"POST"
+                
+            }
+        ]
+    }
+}
