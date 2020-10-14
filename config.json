@@ -18,6 +18,7 @@
                 "http_method":"POST"
                 
             }
-        ]
+        ],
+        "plan":"QRIS"
     }
 }
