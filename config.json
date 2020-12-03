@@ -1,11 +1,5 @@
 {
-    "deploy": {
-        "healthCheckReadiness" : "--readiness --get-url=http://:8081/health --initial-delay-seconds=15 --timeout-seconds=5",
-        "healthCheckLiveness" : "--liveness --get-url=http://:8081/health --initial-delay-seconds=10 --timeout-seconds=5",
-		"volume": "--add --name=pcf-secret --mount-path=/etc/pki/tls/secrets --secret-name=pcf-secret"
-    },
     "application": {
-	"name": "QRIS",
         "methods":[
             {
                 "name":"QRIS - Payments - Inquiry Payment",
@@ -20,16 +14,6 @@
 		"enable": true
             }
         ],
-        "plan":"QRIS",
-	"pic": [
-            {
-                "name": "TOBIAS",
-                "email": "tobias@bca"
-            },
-            {
-                "name": "MARSENA",
-                "email": "marsena@bca"
-            }
-        ]
+        "plan":"QRIS"
     }
 }
