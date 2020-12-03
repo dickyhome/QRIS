@@ -4,21 +4,32 @@
         "healthCheckLiveness" : "--liveness --get-url=http://:8081/health --initial-delay-seconds=10 --timeout-seconds=5",
 		"volume": "--add --name=pcf-secret --mount-path=/etc/pki/tls/secrets --secret-name=pcf-secret"
     },
-    "config": {
+    "application": {
+	"name": "QRIS",
         "methods":[
             {
                 "name":"QRIS - Payments - Inquiry Payment",
                 "relative_url":"/qris/payments/api/inquiry-tx/merchant-id/{merchant_id}/terminal-id/{terminal_id}",
-                "http_method":"GET"
-                
+                "http_method":"GET",
+		"enable": true
             },
             {
                 "name":"QRIS - Payments - Generate QRIS",
                 "relative_url":"/qris/payments/api/qr/tx",
-                "http_method":"POST"
-                
+                "http_method":"POST",
+		"enable": true
             }
         ],
         "plan":"QRIS"
+	"pic": [
+            {
+                "name": "TOBIAS",
+                "email": "tobias@bca"
+            },
+            {
+                "name": "MARSENA",
+                "email": "marsena@bca"
+            }
+        ]
     }
 }
